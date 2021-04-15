@@ -120,7 +120,7 @@ export default class Server {
   }
 
   lintFile(file) {
-    if (eslint.isPathIgnored(file) || file.indexOf('eslint') !== -1) {
+    if (eslint.isPathIgnored(file)) {
       return;
     }
     this.filesToProcess++;

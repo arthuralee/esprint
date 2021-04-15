@@ -22,7 +22,7 @@ export const check = (options) => {
   const filePaths = (paths.map(globPath => glob.sync(globPath, { cwd: rcDir, absolute: true, ignore: ignored })) || []).flat();
   // filter out the files that we tell eslint to ignore
   const nonIgnoredFilePaths = filePaths.filter((filePath) => {
-    return !(eslint.isPathIgnored(filePath) || filePath.indexOf('eslint') !== -1);
+    return !eslint.isPathIgnored(filePath);
   });
 
   lintRunner.run(nonIgnoredFilePaths)
